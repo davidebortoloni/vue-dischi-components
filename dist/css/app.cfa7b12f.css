@@ -1,4 +1,4 @@
-#album-container[data-v-1c53431e]{display:flex;flex-wrap:wrap;justify-content:center}#album-container .card[data-v-1c53431e]{padding:20px;margin:20px;flex-basis:200px;text-align:center;min-height:375px;display:flex;flex-direction:column;justify-content:space-between}#album-container .card img[data-v-1c53431e]{width:100%;height:auto}#album-container .card .title[data-v-1c53431e]{margin-top:15px}header[data-v-22feecf3]{position:fixed;top:0;left:0;width:100%;z-index:1}header select[data-v-22feecf3]{width:250px;height:50px;font-size:20px}header img[data-v-22feecf3]{height:50px;vertical-align:middle}
+.standard-height[data-v-5357881d]{min-height:375px}header[data-v-22feecf3]{position:fixed;top:0;left:0;width:100%;z-index:1}header select[data-v-22feecf3]{width:250px;height:50px;font-size:20px}header img[data-v-22feecf3]{height:50px;vertical-align:middle}
 /*!
  * Bootstrap v5.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

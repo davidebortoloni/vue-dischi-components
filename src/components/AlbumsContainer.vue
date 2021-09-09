@@ -1,30 +1,21 @@
 <template>
-  <section id="album-container">
+  <section id="album-container" class="row justify-content-center g-3">
     <div
       v-for="(album, index) in filteredAlbums"
       :key="index"
-      class="card bg-color-secondary"
+      class="col-2 text-center standard-height"
     >
-      <div>
-        <img :src="album.poster" :alt="album.title" />
-        <h2 class="title text-white">{{ album.title }}</h2>
-      </div>
-      <div class="text-grey">
-        <address class="author text-medium">{{ album.author }}</address>
-        <time :datetime="album.year" class="year text-small">{{
-          album.year
-        }}</time>
-      </div>
+      <Album :album="album" />
     </div>
   </section>
 </template>
 
 <script>
+import Album from "./Album.vue";
+
 export default {
   name: "AlbumsContainer",
-  data() {
-    return {};
-  },
+  components: { Album },
   props: ["albums", "genreSelected"],
   methods: {
     sortAlbums() {
@@ -52,26 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#album-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .card {
-    padding: 20px;
-    margin: 20px;
-    flex-basis: 200px;
-    text-align: center;
-    min-height: 375px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    img {
-      width: 100%;
-      height: auto;
-    }
-    .title {
-      margin-top: 15px;
-    }
-  }
+.standard-height {
+  min-height: 375px;
 }
 </style>
