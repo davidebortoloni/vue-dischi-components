@@ -15,7 +15,7 @@
         <div class="col-auto">
           <div class="row align-items-center">
             <div class="col-auto">
-              <h2>Filter:</h2>
+              <h2>Genre:</h2>
             </div>
             <div class="col-auto">
               <select
@@ -34,6 +34,26 @@
                 </option>
               </select>
             </div>
+            <div class="col-auto">
+              <h2>Artist:</h2>
+            </div>
+            <div class="col-auto">
+              <select
+                name="artist"
+                id="artist"
+                v-model="artistSelected"
+                @change="getArtist"
+              >
+                <option value="All">All</option>
+                <option
+                  v-for="(artist, index) in artists"
+                  :value="artist"
+                  :key="index"
+                >
+                  {{ artist }}
+                </option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -47,12 +67,16 @@ export default {
   data() {
     return {
       genreSelected: "All",
+      artistSelected: "All",
     };
   },
   props: ["albums"],
   methods: {
     getGenre() {
       this.$emit("getGenre", this.genreSelected);
+    },
+    getArtist() {
+      this.$emit("getArtist", this.artistSelected);
     },
   },
   computed: {
@@ -64,6 +88,15 @@ export default {
         }
       });
       return genres;
+    },
+    artists() {
+      const artists = [];
+      this.albums.forEach((album) => {
+        if (!artists.includes(album.author)) {
+          artists.push(album.author);
+        }
+      });
+      return artists;
     },
   },
 };
@@ -77,9 +110,9 @@ header {
   width: 100%;
   z-index: 1;
   select {
-    width: 250px;
+    width: 175px;
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
   }
   img {
     height: 50px;

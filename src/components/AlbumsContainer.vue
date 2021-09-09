@@ -16,7 +16,7 @@ import Album from "./Album.vue";
 export default {
   name: "AlbumsContainer",
   components: { Album },
-  props: ["albums", "genreSelected"],
+  props: ["albums", "genreSelected", "artistSelected"],
   methods: {
     sortAlbums() {
       let sortedAlbums = this.albums.slice();
@@ -32,8 +32,13 @@ export default {
       const sortedAlbums = this.sortAlbums();
       let filteredAlbums = sortedAlbums.slice();
       if (this.genreSelected !== "All") {
-        filteredAlbums = sortedAlbums.filter(
+        filteredAlbums = filteredAlbums.filter(
           (album) => album.genre === this.genreSelected
+        );
+      }
+      if (this.artistSelected !== "All") {
+        filteredAlbums = filteredAlbums.filter(
+          (album) => album.author === this.artistSelected
         );
       }
       return filteredAlbums;
