@@ -1,0 +1,21 @@
+@import "vars";
+
+body {
+  background-color: $primaryColor;
+  padding-top: 100px;
+}
+.bg-color-primary {
+  background-color: $primaryColor;
+}
+.bg-color-secondary {
+  background-color: $secondaryColor;
+}
+.text-grey {
+  color: $grey;
+}
+.text-small {
+  font-size: 15px;
+}
+.text-medium {
+  font-size: 19px;
+}
